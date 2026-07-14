@@ -193,6 +193,10 @@ Illustrator
 
 ↓
 
+Image Generator
+
+↓
+
 Thumbnail Critic
 
 ↓
@@ -295,6 +299,19 @@ Generate production-ready artwork.
 
 Produce high-quality images following the designer's instructions.
 
+### Should NOT
+
+- Edit, reinterpret, or "improve" the Illustrator's prompt — render it faithfully.
+- Add text, titles, captions, watermarks, or logos not present in the prompt.
+- Judge or score image quality, curiosity, or click-through potential.
+- Silently pass through a fidelity failure (e.g. unwanted text, a deviated composition) without reporting it.
+
+### Output
+
+A rendered image per illustration concept, at 16:9 aspect ratio and
+YouTube-thumbnail-compatible size, plus metadata describing the prompt used
+and any deviation from what was specified.
+
 ---
 
 ## 5. Thumbnail Critic
@@ -367,17 +384,17 @@ The system should be capable of generating multiple thumbnail concepts automatic
 
 # Current Stage
 
-Current milestone:
+Current milestone: Build Prompt Version 1 for each AI agent — **complete as
+of 2026-07-14**.
 
-Build Prompt Version 1 for each AI agent.
+1. Teaching Architect — done
+2. Metaphor Generator — done
+3. Illustrator — done
+4. Image Generator — done
+5. Thumbnail Critic — done
 
-Priority order:
-
-1. Teaching Architect
-2. Metaphor Generator
-3. Illustrator
-4. Image Generator
-5. Thumbnail Critic
+All 5 prompts live in `prompts/`. Next: further multi-topic testing of the
+full chain, or begin implementation.
 
 Focus on prompt quality before coding.
 
