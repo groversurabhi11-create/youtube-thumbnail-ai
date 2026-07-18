@@ -398,6 +398,17 @@ full chain, or begin implementation.
 
 Focus on prompt quality before coding.
 
+A version enhancement adding a thumbnail title and the channel wordmark
+("Statistically Speaking") to generated thumbnails — reversing the original
+"no text anywhere" rule — has been drafted (as of 2026-07-18) in
+`prompts/illustrator_v1.md`, `prompts/image_generator_v1.md`, and
+`prompts/thumbnail_critic_v1.md` (each internally labeled Version 2). Per
+explicit user direction, the live prompt files above are left unchanged for
+now — the enhancement lives only in these `_v1`-suffixed files until the
+user decides to promote it. `teaching_architect_v1.md` and
+`metaphor_generator_v1.md` are unmodified duplicates of their live
+counterparts, since neither agent's responsibilities changed in this round.
+
 ---
 
 # Success Criteria

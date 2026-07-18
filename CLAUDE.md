@@ -39,6 +39,21 @@ run end-to-end through all 5 agents, as each prompt's own worked example;
 "random experiment" has been run through Teaching Architect → Image
 Generator but not yet Thumbnail Critic), or begin implementation.
 
+**Text-on-thumbnail enhancement drafted, not yet live** (2026-07-18): a
+version reversing the original "no text anywhere" rule — baking a short
+thumbnail title and the "Statistically Speaking" channel wordmark directly
+into the generated image — has been drafted for Illustrator, Image
+Generator, and Thumbnail Critic. Per explicit user direction, this content
+lives in `prompts/illustrator_v1.md`, `prompts/image_generator_v1.md`, and
+`prompts/thumbnail_critic_v1.md` (each internally labeled Version 2), while
+the live `prompts/<agent_name>.md` files listed above are unchanged and
+still reflect the original no-text v1 design. This is a deliberately
+unusual naming choice — the `_v1`-suffixed files hold the *newer* content
+here — so don't assume `_v1` means "older" in this repo; check each file's
+own internal `Version:` line instead. `teaching_architect_v1.md` and
+`metaphor_generator_v1.md` are unmodified duplicates of their live files,
+since neither agent's responsibilities changed in this round.
+
 ## Pipeline
 
 Topic → Teaching Architect → Metaphor Generator → Illustrator → Image Generator
@@ -64,6 +79,14 @@ inventing a visual/metaphor instead of staying purely conceptual).
 - Include one full worked example (input → output) inside the system prompt
   itself. This has been the highest-value addition for output consistency.
 - State explicitly what the agent must NOT do, not just what it should do.
+- Each live prompt file also has an on-disk `_v1` counterpart (e.g.
+  `illustrator_v1.md`). As of 2026-07-18 these aren't simple "older/frozen"
+  archives — per explicit user direction, a drafted enhancement round
+  (thumbnail title + channel wordmark text) was written directly into
+  `illustrator_v1.md`, `image_generator_v1.md`, and `thumbnail_critic_v1.md`
+  while the live files were left untouched. So in this repo `_v1` currently
+  means "the other copy," not "the earlier one" — always check each file's
+  internal `Version:` line rather than assuming from the filename.
 
 ## Design decisions to remember
 
@@ -108,6 +131,19 @@ inventing a visual/metaphor instead of staying purely conceptual).
   "education beats sensationalism" guiding principle as a non-negotiable
   rule, not just a scoring criterion, and includes explicit
   scoring-calibration guidance to avoid LLM-judge score inflation.
+- Reversed the "no text anywhere in a thumbnail" rule (2026-07-18): the
+  AI-generated image itself now bakes in a short thumbnail title (written by
+  the Illustrator, not a new agent, since it already has enough context —
+  the metaphor's name/core_comparison/why_it_works — and already owns
+  composition) and the fixed "Statistically Speaking" channel wordmark,
+  rather than adding them via a separate post-production overlay step. The
+  no-text rule itself isn't gone — it's scoped down to "exactly these two
+  text elements, nothing else," preserving the original rationale (avoiding
+  per-case ambiguity in a no-human-in-loop pipeline). See
+  `prompts/illustrator_v1.md` responsibilities #7–8 and its BOUNDARIES
+  section for the exact scoping. Per explicit user direction this
+  enhancement was drafted only in the `_v1`-suffixed prompt files, not the
+  live ones — see the Current Stage note above.
 
 ## Testing approach so far
 
